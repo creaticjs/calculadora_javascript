@@ -11,17 +11,18 @@
 <body>
 
     <div class="container">
-        <div class="title-calculator">
-            <span>Calculator</span>
-        </div>
         <div class="card-calculator">
             <span id="result"></span>
 
             <form name="calculator">
 
                 <div class="header">
-                    <input type="text" id="answer" name="answer" />
-                    <span type="text" id="temporal" name="temporal">0</span>
+                    <div class="temporal-container">
+                        <span type="text" id="temporal" name="temporal">0</span>
+                    </div>
+                    <div class="answer-cotainer">
+                        <input type="text" id="answer" disabled name="answer"></input>
+                    </div>
                 </div>
 
 

@@ -14,11 +14,6 @@ body{
   padding:80px;
 }
 
-.container .title-calculator{
-  display: block;
-  overflow: hidden;
-}
-
 .container .card-calculator{
   width:100%;
   margin: auto;
@@ -33,12 +28,24 @@ body{
   font-size:16px;
 }
 
+input#answer{
+  float:right;
+}
+
 .container .card-calculator .header{
   padding:30px 30px;
   background:#355691;
-  height:50px;
+  height:70px;
   border-bottom:1px solid  #A7A8AA;
   position: relative;
+}
+.container .card-calculator .header .temporal-container{
+  float:right;
+}
+
+.container .card-calculator .header .answer-cotainer{
+  height: 40px;
+  float:right;
 }
 
 .container .card-calculator .body{
@@ -46,6 +53,10 @@ body{
 }
 
 .container .card-calculator .body .row{
+  font-size:0;
+}
+
+.container .card-calculator .header .row{
   font-size:0;
 }
 
