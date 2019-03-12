@@ -21,12 +21,43 @@
     </div>
     <button id="addNumber" type="button" value="addNumber" onclick="doFunction();">Add number</button>
     <button id="deleteNumber" type="button" value="deleteNumber" onclick="doFunction();">Delete number</button>
-    <button id="suma" type="button" value="suma" onclick="doFunction();">Suma</button>
-    <button id="resta" type="button" value="resta" onclick="doFunction();">Resta</button>
-    <button id="mul" type="button" value="mul" onclick="doFunction();">Multiplicación</button>
-    <button id="div" type="button" value="div" onclick="doFunction();">División</button>
+
 
     <span id="result"></span>
+
+    <form name="calculator">
+
+        <span type="text" id="temporal" name="temporal"></span>
+        <input type="text" id="answer" name="answer" />
+        <br>
+
+        <input type="button" value=" 1" onclick="calculator.answer.value += '1'" />
+        <input type="button" value=" 2" onclick="calculator.answer.value += '2'" />
+        <input type="button" value=" 3" onclick="calculator.answer.value += '3'" />
+        <button id="suma" type="button" value="suma" onclick="doFunction();">Suma</button>
+        <br />
+
+        <input type="button" value=" 4" onclick="calculator.answer.value += '4'" />
+        <input type="button" value=" 5" onclick="calculator.answer.value += '5'" />
+        <input type="button" value=" 6" onclick="calculator.answer.value += '6'" />
+        <button id="resta" type="button" value="resta" onclick="doFunction();">Resta</button>
+        </br>
+
+        <input type="button" value=" 7" onclick="calculator.answer.value += '7'" />
+        <input type="button" value=" 8" onclick="calculator.answer.value += '8'" />
+        <input type="button" value=" 9" onclick="calculator.answer.value += '9'" />
+        <button id="mul" type="button" value="mul" onclick="doFunction();">Multiplicación</button>
+        </br>
+
+        <input type="button" value=" del" onclick="calculator.answer.value = ''" />
+        <input type="button" value=" 0" onclick="calculator.answer.value += '0'" />
+        <input type="button" value=" =" id="calculate" onclick="doFunction();" />
+        <button id="div" type="button" value="div" onclick="doFunction();">División</button>
+        </br>
+
+
+    </form>
+
 
     <script>
         var firstNumber = 0;
@@ -35,6 +66,7 @@
         var num = 2;
         var arrayNumbers = [];
         var arrayOperation = [];
+        var numberTemporal = "";
 
         // AGREGAR NÚMERO
         document.getElementById("addNumber").onclick = function () {
@@ -58,9 +90,79 @@
             console.log('Actualmente hay', num);
         };
 
+        // CALCULAR RESULTADO
+        document.getElementById("calculate").onclick = function () {
+            // Se evalúa si hay un numero en answer
+            if (document.getElementById("answer").value !== "") {
+                var numberTemp = document.getElementById("answer").value;
+                console.log(numberTemp)
+                var valueSaved = document.getElementById("temporal").value;
+                numberTemporal += document.getElementById("temporal").innerHTML = numberTemp;
+                document.getElementById("temporal").innerHTML = numberTemporal;
+                document.getElementById("answer").value = "";
+            }
+            console.log(numberTemporal);
+            arrayNumbers = numberTemporal.match(/\d+/g);
+            arrayOperation = numberTemporal.match(/[+-/x]+/g);
+            console.log(arrayNumbers);
+            console.log(arrayOperation);
+
+            var resultadoFinal = 0;
+            var operation = "";
+            for (i = 0; i < arrayNumbers.length; i++) {
+
+                if (i == 0) {
+                    switch (arrayOperation[i]) {
+                        case "+":
+                            resultadoFinal = Number(arrayNumbers[i]) + Number(arrayNumbers[i + 1]);
+                            break;
+                        case "-":
+                            resultadoFinal = Number(arrayNumbers[i]) - Number(arrayNumbers[i + 1]);
+                            break;
+                        case "x":
+                            resultadoFinal = Number(arrayNumbers[i]) * Number(arrayNumbers[i + 1]);
+                            break;
+                        case "/":
+                            resultadoFinal = Number(arrayNumbers[i]) / Number(arrayNumbers[i + 1]);
+                            break;
+                    }
+                    console.log('Resultado final', resultadoFinal);
+
+                } else {
+                    switch (arrayOperation[i]) {
+                        case "+":
+                            resultadoFinal = resultadoFinal + Number(arrayNumbers[i + 1]);
+                            break;
+                        case "-":
+                            resultadoFinal = resultadoFinal - Number(arrayNumbers[i + 1]);
+                            break;
+                        case "x":
+                            resultadoFinal = resultadoFinal * Number(arrayNumbers[i + 1]);
+                            break;
+                        case "/":
+                            resultadoFinal = resultadoFinal / Number(arrayNumbers[i + 1]);
+                            break;
+                    }
+                    console.log('Resultado final', resultadoFinal);
+                }
+
+
+
+            }
+
+        };
+
 
         // SUMA
         document.getElementById("suma").onclick = function () {
+            var numberTemp = document.getElementById("answer").value;
+            console.log(numberTemp)
+            var valueSaved = document.getElementById("temporal").value;
+            numberTemporal += document.getElementById("temporal").innerHTML = numberTemp + "+";
+            document.getElementById("temporal").innerHTML = numberTemporal;
+            document.getElementById("answer").value = "";
+            // window.alert(temporal);
+            /*
             var arraySum = [];
             for (i = 0; i < num; i++) {
                 const idname = 'number' + (i + 1);
@@ -73,24 +175,37 @@
                 sum = Number(arraySum[i]) + Number(sum);
             }
             document.getElementById("result").innerHTML = sum;
+            */
         };
 
         // RESTA
         document.getElementById("resta").onclick = function () {
-            var firstNumber = document.getElementById("firstNumber").value;
-            console.log('Función de operar' + firstNumber);
+            var numberTemp = document.getElementById("answer").value;
+            console.log(numberTemp)
+            var valueSaved = document.getElementById("temporal").value;
+            numberTemporal += document.getElementById("temporal").innerHTML = numberTemp + "-";
+            document.getElementById("temporal").innerHTML = numberTemporal;
+            document.getElementById("answer").value = "";
         };
 
         // MULTIPLICACIÓN
         document.getElementById("mul").onclick = function () {
-            var firstNumber = document.getElementById("firstNumber").value;
-            console.log('Función de operar' + firstNumber);
+            var numberTemp = document.getElementById("answer").value;
+            console.log(numberTemp)
+            var valueSaved = document.getElementById("temporal").value;
+            numberTemporal += document.getElementById("temporal").innerHTML = numberTemp + "x";
+            document.getElementById("temporal").innerHTML = numberTemporal;
+            document.getElementById("answer").value = "";
         };
 
         // DIVISIÓN 
         document.getElementById("div").onclick = function () {
-            var firstNumber = document.getElementById("firstNumber").value;
-            console.log('Función de operar' + firstNumber);
+            var numberTemp = document.getElementById("answer").value;
+            console.log(numberTemp)
+            var valueSaved = document.getElementById("temporal").value;
+            numberTemporal += document.getElementById("temporal").innerHTML = numberTemp + "/";
+            document.getElementById("temporal").innerHTML = numberTemporal;
+            document.getElementById("answer").value = "";
         };
 
 
