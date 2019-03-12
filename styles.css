@@ -44,3 +44,21 @@
     padding: 10px;
     box-shadow: 4px 0px 12px black inset;
   }
+
+
+  body {
+      margin-top: 60px;
+  }
+
+  .container {
+    margin: auto;
+    width: 50%;
+    border: 1px solid black;
+    box-shadow: 3px 3px;
+    padding: 10px;
+  }
+
+  span, h1 {
+    display:table;
+    margin:0 auto;
+  }

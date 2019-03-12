@@ -10,54 +10,45 @@
 
 <body>
 
-    <div id="container">
-        <h1>
-            Calculadora
-        </h1>
-        <span>number 1</span>
-        <input type="number" name="number1" id="number1"><br>
-        <span>number 2</span>
-        <input type="number" name="number2" id="number2"><br>
+    <div class="container">
+        <h1>Calculadora</h1>
+
+        <span id="result"></span>
+
+        <form name="calculator">
+
+            <input type="text" id="answer" name="answer" />
+            <span type="text" id="temporal" name="temporal">0</span>
+            <br>
+
+            <input type="button" value=" 1" onclick="calculator.answer.value += '1'" />
+            <input type="button" value=" 2" onclick="calculator.answer.value += '2'" />
+            <input type="button" value=" 3" onclick="calculator.answer.value += '3'" />
+            <button id="suma" type="button" value="suma" onclick="doFunction();">Suma</button>
+            <br />
+
+            <input type="button" value=" 4" onclick="calculator.answer.value += '4'" />
+            <input type="button" value=" 5" onclick="calculator.answer.value += '5'" />
+            <input type="button" value=" 6" onclick="calculator.answer.value += '6'" />
+            <button id="resta" type="button" value="resta" onclick="doFunction();">Resta</button>
+            </br>
+
+            <input type="button" value=" 7" onclick="calculator.answer.value += '7'" />
+            <input type="button" value=" 8" onclick="calculator.answer.value += '8'" />
+            <input type="button" value=" 9" onclick="calculator.answer.value += '9'" />
+            <button id="mul" type="button" value="mul" onclick="doFunction();">Multiplicación</button>
+            </br>
+
+            <input type="button" value=" del" onclick="calculator.answer.value = ''" />
+            <input type="button" value=" 0" onclick="calculator.answer.value += '0'" />
+            <input type="button" value=" =" id="calculate" onclick="doFunction();" />
+            <button id="div" type="button" value="div" onclick="doFunction();">División</button>
+            </br>
+
+
+        </form>
+
     </div>
-    <button id="addNumber" type="button" value="addNumber" onclick="doFunction();">Add number</button>
-    <button id="deleteNumber" type="button" value="deleteNumber" onclick="doFunction();">Delete number</button>
-
-
-    <span id="result"></span>
-
-    <form name="calculator">
-
-        <span type="text" id="temporal" name="temporal"></span>
-        <input type="text" id="answer" name="answer" />
-        <br>
-
-        <input type="button" value=" 1" onclick="calculator.answer.value += '1'" />
-        <input type="button" value=" 2" onclick="calculator.answer.value += '2'" />
-        <input type="button" value=" 3" onclick="calculator.answer.value += '3'" />
-        <button id="suma" type="button" value="suma" onclick="doFunction();">Suma</button>
-        <br />
-
-        <input type="button" value=" 4" onclick="calculator.answer.value += '4'" />
-        <input type="button" value=" 5" onclick="calculator.answer.value += '5'" />
-        <input type="button" value=" 6" onclick="calculator.answer.value += '6'" />
-        <button id="resta" type="button" value="resta" onclick="doFunction();">Resta</button>
-        </br>
-
-        <input type="button" value=" 7" onclick="calculator.answer.value += '7'" />
-        <input type="button" value=" 8" onclick="calculator.answer.value += '8'" />
-        <input type="button" value=" 9" onclick="calculator.answer.value += '9'" />
-        <button id="mul" type="button" value="mul" onclick="doFunction();">Multiplicación</button>
-        </br>
-
-        <input type="button" value=" del" onclick="calculator.answer.value = ''" />
-        <input type="button" value=" 0" onclick="calculator.answer.value += '0'" />
-        <input type="button" value=" =" id="calculate" onclick="doFunction();" />
-        <button id="div" type="button" value="div" onclick="doFunction();">División</button>
-        </br>
-
-
-    </form>
-
 
     <script>
         var firstNumber = 0;
@@ -68,27 +59,6 @@
         var arrayOperation = [];
         var numberTemporal = "";
 
-        // AGREGAR NÚMERO
-        document.getElementById("addNumber").onclick = function () {
-            num = num + 1;
-            container.appendChild(document.createTextNode("number " + num));
-            var input = document.createElement("input");
-            input.type = "text";
-            input.name = "number" + num;
-            input.id = "number" + num;
-            container.appendChild(input);
-            container.appendChild(document.createElement("br"));
-        };
-
-        // ELIMINAR NÚMERO
-        document.getElementById("deleteNumber").onclick = function () {
-            var container = document.getElementById("container");
-            for (i = 0; i < 3; i++) {
-                container.removeChild(container.lastChild);
-            }
-            num = num - 1;
-            console.log('Actualmente hay', num);
-        };
 
         // CALCULAR RESULTADO
         document.getElementById("calculate").onclick = function () {
