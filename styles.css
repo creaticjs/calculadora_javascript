@@ -25,6 +25,18 @@
     margin-left: 13px;
     margin-top: 10px;
   }
+
+  button {
+    background: lightGray;
+    width: 20%;
+    font-size: 20px;
+    font-weight: 900;
+    border-radius: 7px;
+    margin-left: 13px;
+    margin-top: 10px;
+  }
+
+
   input[type=button]:active {
     background-color: #3e8e41;
     box-shadow: 0 5px #666;
@@ -42,7 +54,6 @@
     margin: 5px auto;
     font-size: 20px;
     padding: 10px;
-    box-shadow: 4px 0px 12px black inset;
   }
 
 
@@ -56,9 +67,14 @@
     border: 1px solid black;
     box-shadow: 3px 3px;
     padding: 10px;
+    border-radius: 25px;
   }
 
   span, h1 {
     display:table;
+    margin:0 auto;
+  }
+
+  .contentCalculator {
     margin:0 auto;
   }
