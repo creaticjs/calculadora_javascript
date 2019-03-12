@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Calculadora</title>
+
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+    <div id="container">
+        <h1>
+            Calculadora
+        </h1>
+        <span>number 1</span>
+        <input type="number" name="number1" id="number1"><br>
+        <span>number 2</span>
+        <input type="number" name="number2" id="number2"><br>
+    </div>
+    <button id="addNumber" type="button" value="addNumber" onclick="doFunction();">Add number</button>
+    <button id="deleteNumber" type="button" value="deleteNumber" onclick="doFunction();">Delete number</button>
+    <button id="suma" type="button" value="suma" onclick="doFunction();">Suma</button>
+    <button id="resta" type="button" value="resta" onclick="doFunction();">Resta</button>
+    <button id="mul" type="button" value="mul" onclick="doFunction();">Multiplicación</button>
+    <button id="div" type="button" value="div" onclick="doFunction();">División</button>
+
+    <span id="result"></span>
+
+    <script>
+        var firstNumber = 0;
+        var secondNumber = 0;
+        var result = 0;
+        var num = 2;
+        var arrayNumbers = [];
+        var arrayOperation = [];
+
+        // AGREGAR NÚMERO
+        document.getElementById("addNumber").onclick = function () {
+            num = num + 1;
+            container.appendChild(document.createTextNode("number " + num));
+            var input = document.createElement("input");
+            input.type = "text";
+            input.name = "number" + num;
+            input.id = "number" + num;
+            container.appendChild(input);
+            container.appendChild(document.createElement("br"));
+        };
+
+        // ELIMINAR NÚMERO
+        document.getElementById("deleteNumber").onclick = function () {
+            var container = document.getElementById("container");
+            for (i = 0; i < 3; i++) {
+                container.removeChild(container.lastChild);
+            }
+            num = num - 1;
+            console.log('Actualmente hay', num);
+        };
+
+
+        // SUMA
+        document.getElementById("suma").onclick = function () {
+            var arraySum = [];
+            for (i = 0; i < num; i++) {
+                const idname = 'number' + (i + 1);
+                var number = document.getElementById(idname).value;
+                arraySum.push(number);
+            }
+            console.log(arraySum);
+            var sum = 0;
+            for (i = 0; i < arraySum.length; i++) {
+                sum = Number(arraySum[i]) + Number(sum);
+            }
+            document.getElementById("result").innerHTML = sum;
+        };
+
+        // RESTA
+        document.getElementById("resta").onclick = function () {
+            var firstNumber = document.getElementById("firstNumber").value;
+            console.log('Función de operar' + firstNumber);
+        };
+
+        // MULTIPLICACIÓN
+        document.getElementById("mul").onclick = function () {
+            var firstNumber = document.getElementById("firstNumber").value;
+            console.log('Función de operar' + firstNumber);
+        };
+
+        // DIVISIÓN 
+        document.getElementById("div").onclick = function () {
+            var firstNumber = document.getElementById("firstNumber").value;
+            console.log('Función de operar' + firstNumber);
+        };
+
+
+    </script>
+
+
+
+</body>
+
+
+</html>
