@@ -57,6 +57,7 @@ body{
 
 input#answer{
   float:right;
+  width: 100%;
 }
 
 .container .card-calculator .header{
@@ -67,7 +68,7 @@ input#answer{
   position: relative;
 }
 .container .card-calculator .header .temporal-container{
-  color: #A7A8AA
+  color: #A7A8AA;
 }
 
 .container .card-calculator .header .answer-cotainer{
