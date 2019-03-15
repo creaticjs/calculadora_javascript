@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="row">
-                        <input type="button" value=" del" onclick="calculator.answer.value = ''" />
+                        <input type="button" value=" del" id="del"onclick="doFunction();" />
                         <input type="button" value=" 0" onclick="calculator.answer.value += '0'" />
                         <input type="button" value=" =" id="calculate" onclick="doFunction();" />
                         <button id="div" type="button" value="div" onclick="doFunction();">Div</button>
@@ -124,7 +124,7 @@
                             resultadoFinal = resultadoFinal / Number(arrayNumbers[i + 1]);
                             break;
                     }
-                    document.getElementById("answer").value = resultadoFinal; 
+                    document.getElementById("answer").value = resultadoFinal;
                     console.log('Resultado final', resultadoFinal);
                 }
 
@@ -132,6 +132,13 @@
 
             }
 
+        };
+
+        // CLEAR
+        document.getElementById("del").onclick = function () {
+            document.getElementById("answer").value = 0;
+            numberTemporal = "";
+            document.getElementById("temporal").innerHTML = "";
         };
 
 
