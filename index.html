@@ -50,16 +50,30 @@
                     </div>
 
                     <div class="row">
-                        <input type="button" value=" del" id="del"onclick="doFunction();" />
+                        <input type="button" value=" del" id="del" onclick="doFunction();" />
                         <input type="button" value=" 0" onclick="calculator.answer.value += '0'" />
                         <input type="button" value=" =" id="calculate" onclick="doFunction();" />
                         <button id="div" type="button" value="div" onclick="doFunction();">Div</button>
                     </div>
+
                 </div>
 
             </form>
         </div>
+
+        <div class="card-calculator2">
+            <div>
+                <h4>Last Value</h4>
+                <h4 id="lastValueCalculated">
+                    </h5>
+            </div>
+        </div>
     </div>
+    
+    <script>
+        var last = localStorage.getItem('lastCalculatedValue');
+        document.getElementById("lastValueCalculated").innerHTML = last;
+    </script>
 
     <script>
         var firstNumber = 0;
@@ -69,6 +83,8 @@
         var arrayNumbers = [];
         var arrayOperation = [];
         var numberTemporal = "";
+    
+
 
 
         // CALCULAR RESULTADO
@@ -125,6 +141,8 @@
                             break;
                     }
                     document.getElementById("answer").value = resultadoFinal;
+                    localStorage.setItem('lastCalculatedValue', resultadoFinal);
+                    document.getElementById("lastValueCalculated").innerHTML = resultadoFinal;
                     console.log('Resultado final', resultadoFinal);
                 }
 
