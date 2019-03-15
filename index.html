@@ -6,6 +6,7 @@
     <title>Calculator</title>
 
     <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 </head>
 
 <body>
@@ -32,28 +33,28 @@
                         <input type="button" value=" 1" onclick="calculator.answer.value += '1'" />
                         <input type="button" value=" 2" onclick="calculator.answer.value += '2'" />
                         <input type="button" value=" 3" onclick="calculator.answer.value += '3'" />
-                        <button id="suma" type="button" value="suma" onclick="doFunction();">Add</button>
+                        <button id="suma" type="button" value="suma" onclick="doFunction();"><i class="fa fa-plus"></i></button>
                     </div>
 
                     <div class="row">
                         <input type="button" value=" 4" onclick="calculator.answer.value += '4'" />
                         <input type="button" value=" 5" onclick="calculator.answer.value += '5'" />
                         <input type="button" value=" 6" onclick="calculator.answer.value += '6'" />
-                        <button id="resta" type="button" value="resta" onclick="doFunction();">Res</button>
+                        <button id="resta" type="button" value="resta" onclick="doFunction();"><i class="fas fa-minus"></i></button>
                     </div>
 
                     <div class="row">
                         <input type="button" value=" 7" onclick="calculator.answer.value += '7'" />
                         <input type="button" value=" 8" onclick="calculator.answer.value += '8'" />
                         <input type="button" value=" 9" onclick="calculator.answer.value += '9'" />
-                        <button id="mul" type="button" value="mul" onclick="doFunction();">Mul</button>
+                        <button id="mul" type="button" value="mul" onclick="doFunction();"><i class="fas fa-times"></i></button>
                     </div>
 
                     <div class="row">
-                        <input type="button" value=" del" id="del" onclick="doFunction();" />
+                        <input type="button" value=" Ac" id="del" onclick="doFunction();" />
                         <input type="button" value=" 0" onclick="calculator.answer.value += '0'" />
                         <input type="button" value=" =" id="calculate" onclick="doFunction();" />
-                        <button id="div" type="button" value="div" onclick="doFunction();">Div</button>
+                        <button id="div" type="button" value="div" onclick="doFunction();"><i class="fas fa-divide"></i></button>
                     </div>
 
                 </div>
@@ -62,10 +63,9 @@
         </div>
 
         <div class="card-calculator2">
-            <div>
+            <div class="last-value-container">
                 <h4>Last Value</h4>
-                <h4 id="lastValueCalculated">
-                    </h5>
+                <h5 id="lastValueCalculated"></h5>
             </div>
         </div>
     </div>

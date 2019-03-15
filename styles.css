@@ -34,7 +34,7 @@ body{
   display: block;
   margin-top: 10px;
   max-width:340px;
-  background: #9ca3af;
+  background: #A4A4A4;
   border-radius:10px;
   overflow: hidden;
   -webkit-box-shadow: 0px 0px 40px -2px rgba(0,0,0,0.2);
@@ -43,9 +43,17 @@ body{
   font-size:16px;
 }
 
-.container .card-calculator2 h1{
-  align-items: center;
+.container .card-calculator2 .last-value-container{
+  margin: auto;
+  width: 50%;
+  padding: 0;
+  height: 80px;
 }
+
+.container .card-calculator2 h4,h5{
+  text-align: center;
+}
+
 
 input#answer{
   float:right;
